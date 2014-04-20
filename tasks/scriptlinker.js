@@ -53,18 +53,17 @@ module.exports = function(grunt) {
 			grunt.file.expand({}, f.dest).forEach(function(dest){
 				page = grunt.file.read(dest);
 				start = page.indexOf(options.startTag);
-
 				end = page.indexOf(options.endTag, start);
+
 				if (start === -1 || end === -1 || start >= end) {
 					return;
 				} else {
-				var padding ='';
-				var ind = start - 1;
-				// TODO: Fix this hack
-				while(page.charAt(ind)===' ' || page.charAt(ind)==='  '){
-					padding += page.charAt(ind);
-					ind -= 1;
-				}
+					var padding ='';
+					var ind = start - 1;
+					while(/[^\S\n]/.test(page.charAt(ind))){
+						padding += page.charAt(ind);
+						ind -= 1;
+					}
 					console.log('padding length', padding.length);
 					newPage = page.substr(0, start + options.startTag.length) + grunt.util.linefeed + padding + scripts.join(grunt.util.linefeed + padding) + grunt.util.linefeed + padding + page.substr(end);
 					// Insert the scripts
