@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 				} else {
 					var padding ='';
 					var ind = start - 1;
-					while(/[^\w\n]/.test(page.charAt(ind))){
+					while(/[^\S\n]/.test(page.charAt(ind))){
 						padding += page.charAt(ind);
 						ind -= 1;
 					}
