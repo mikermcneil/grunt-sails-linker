@@ -22,7 +22,8 @@ module.exports = function(grunt) {
 			endTag: '<!--SCRIPTS END-->',
 			fileTmpl: '<script src="%s"></script>',
 			appRoot: '',
-			relative: false
+			relative: false,
+			host: ''
 		});
 
 
@@ -46,6 +47,11 @@ module.exports = function(grunt) {
 					// If "relative" option is set, remove initial forward slash from file path
 					if (options.relative) {
 						filepath = filepath.replace(/^\//,'');
+					}
+					// If "host" option is set, prepend host to file path
+					if (options.host) {
+						filePath = options.host.replace(/\/$/, '') +
+											 '/' + filepath.replace(/^\//,'');
 					}
 					return util.format(options.fileTmpl, filepath);
 				});
