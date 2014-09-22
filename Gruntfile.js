@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    scriptlinker: {
+    'sails-linker': {
       default_options: {
         options: {
           startTag: '<!--SCRIPTS-->',
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'scriptlinker:default_options', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'sails-linker:default_options', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
