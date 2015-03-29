@@ -1,15 +1,16 @@
 {
   "name": "grunt-sails-linker",
   "description": "Autoinsert script tags in an html file",
-  "version": "0.10.1",
-  "homepage": "https://github.com/Zolmeister/grunt-sails-linker",
+  "version": "0.10.2",
+  "homepage": "https://github.com/akshayakrsh/grunt-sails-linker",
   "contributors": [
+    "Akshaya Kumar Sharma <akshayakrsh@gmail.com> (http://lordakshaya.com)",
     "Zolmeister <zolikahan@gmail.com> (http://zolmeister.com)",
     "scott-laursen <thomas@addgo.com> (www.addgo.com)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zolmeister/grunt-sails-linker.git"
+    "url": "https://github.com/akshayakrsh/grunt-sails-linker.git"
   },
   "main": "Gruntfile.js",
   "engines": {
