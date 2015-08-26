@@ -40,7 +40,13 @@ module.exports = function(grunt) {
 					if (!grunt.file.exists(filepath)) {
 						grunt.log.warn('Source file "' + filepath + '" not found.');
 						return false;
-					} else { return true; }
+					}
+					if (grunt.file.isDir(filepath)) {
+						grunt.verbose.warn('Ignoring directory "' + filepath + '" even though matching pattern.');
+						return false;
+					} else { 
+						return true; 
+					}
 				}).map(function (filepath) {
 					filepath = filepath.replace(options.appRoot, '');
 					// If "relative" option is set, remove initial forward slash from file path
