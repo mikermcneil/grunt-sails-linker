@@ -30,7 +30,9 @@ grunt.initConfig({
         startTag: '<!--SCRIPTS-->',
         endTag: '<!--SCRIPTS END-->',
         fileTmpl: '<script src="%s"></script>',
-        appRoot: 'app/'
+        appRoot: 'app/',
+        viewSpecificInsertion: true, //setting this to false will revert to the default behaviour
+        globalInsertionScriptsPath: 'dependencies' //folder containing global dependencies
       },
       files: {
         // Target-specific file lists and/or options go here.
@@ -79,3 +81,14 @@ Default value: `false`
 
 Reference files using a relative url.
 
+#### options.viewSpecificInsertion
+Type: `Boolean`
+Default value: `false`
+
+Enables insertion of the scripts/styles/templates etc. for the target view. If value is true, only files under the folder with same name as the view will be inserted e.g. js files under the folder 'test' will be inserted in 'test.ejs' only.
+
+#### options.globalInsertionScriptsPath
+Type: `String`
+Default value: `undefined`
+
+Works in conjunction with options.viewSpecificInsertion to override insertion of files at the specified path to be inserted in all matching files.
