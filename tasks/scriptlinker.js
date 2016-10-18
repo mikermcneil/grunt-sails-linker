@@ -41,7 +41,13 @@ module.exports = function(grunt) {
 					if (!grunt.file.exists(filepath)) {
 						grunt.log.warn('Source file "' + filepath + '" not found.');
 						return false;
-					} else { return true; }
+					}
+					if (grunt.file.isDir(filepath)) {
+						grunt.verbose.warn('Ignoring directory "' + filepath + '" even though matching pattern.');
+						return false;
+					} else { 
+						return true; 
+					}
 				}).map(function (filepath) {
 					if (options.inline) {
 						var contents = grunt.file.read(filepath);
