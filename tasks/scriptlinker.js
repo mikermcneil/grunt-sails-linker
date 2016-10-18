@@ -69,7 +69,6 @@ module.exports = function(grunt) {
 						padding += page.charAt(ind);
 						ind -= 1;
 					}
-					console.log('padding length', padding.length);
 					newPage = page.substr(0, start + options.startTag.length) + grunt.util.linefeed + padding + scripts.join(grunt.util.linefeed + padding) + grunt.util.linefeed + padding + page.substr(end);
 					// Insert the scripts
 					grunt.file.write(dest, newPage);
